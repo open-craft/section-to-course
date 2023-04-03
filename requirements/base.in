@@ -1,0 +1,6 @@
+# Core requirements for using this application
+-c constraints.txt
+
+Django             # Web application framework
+django-model-utils        # Provides TimeStampedModel abstract base class
+edx_django_utils          # Provides helpers for Django applications
