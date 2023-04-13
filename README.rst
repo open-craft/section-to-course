@@ -1,7 +1,6 @@
 section-to-course
 #############################
 
-|pypi-badge| |ci-badge| |codecov-badge|
 |license-badge| |status-badge|
 
 Purpose
@@ -17,55 +16,28 @@ Developing
 
 One Time Setup
 --------------
-.. code-block::
+Set up the Open edX [devstack](https://github.com/openedx/devstack)
 
-  # Clone the repository
+Then, in the `src` directory of your devstack, run:
+
+.. code-block::
   git clone git@github.com:open-craft/section-to-course.git
-  cd section-to-course
 
-  # Set up a virtualenv using virtualenvwrapper with the same name as the repo and activate it
-  mkvirtualenv -p python3.8 section-to-course
+Then, in your `devstack` directory, run:
 
-
-Every time you develop something in this repo
----------------------------------------------
 .. code-block::
+  make dev.shell.studio
+  cd /edx/src/section-to-course
+  pip install -e .
 
-  # Activate the virtualenv
-  workon section-to-course
+Running Tests
+-------------
 
-  # Grab the latest code
-  git checkout main
-  git pull
+To run tests, within the studio shell, in `/edx/app/edxapp/edx-platform`, run:
 
-  # Install/update the dev requirements
-  make requirements
+.. code-block::
+  DJANGO_SETTINGS_MODULE=cms.envs.test pytest --pyargs section_to_course --rootdir cms
 
-  # Run the tests and quality checks (to verify the status before you make any changes)
-  make validate
-
-  # Make a new branch for your changes
-  git checkout -b <your_github_username>/<short_description>
-
-  # Using your favorite editor, edit the code to make your change.
-  vim ...
-
-  # Run your new tests
-  pytest ./path/to/new/tests
-
-  # Run all the tests and quality checks
-  make validate
-
-  # Commit all your changes
-  git commit ...
-  git push
-
-  # Open a PR and ask for review.
-
-Deploying
-=========
-
-This application must be installed and added to the INSTALLED_APPS in the LMS.
 
 License
 *******
@@ -90,18 +62,6 @@ Reporting Security Issues
 *************************
 
 Please do not report security issues in public. Please email help@opencraft.com.
-
-.. |pypi-badge| image:: https://img.shields.io/pypi/v/section-to-course.svg
-    :target: https://pypi.python.org/pypi/section-to-course/
-    :alt: PyPI
-
-.. |ci-badge| image:: https://github.com/open-craft/section-to-course/workflows/Python%20CI/badge.svg?branch=main
-    :target: https://github.com/open-craft/section-to-course/actions
-    :alt: CI
-
-.. |codecov-badge| image:: https://codecov.io/github/open-craft/section-to-course/coverage.svg?branch=main
-    :target: https://codecov.io/github/openedx/section-to-course?branch=main
-    :alt: Codecov
 
 .. |license-badge| image:: https://img.shields.io/github/license/openedx/section-to-course.svg
     :target: https://github.com/open-craft/section-to-course/blob/main/LICENSE.txt

@@ -1,8 +1,6 @@
 """
 Utility functions for section_to_course.
 """
-import hashlib
-from uuid import uuid4
 
 from django.utils import timezone
 
