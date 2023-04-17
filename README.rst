@@ -6,7 +6,7 @@ section-to-course
 Purpose
 *******
 
-Allows course authors to factors sections from Open edX courses into their own new course.
+Allows course authors to factor sections from Open edX courses into their own new course.
 
 Getting Started
 ***************
@@ -16,12 +16,13 @@ Developing
 
 One Time Setup
 --------------
-Set up the Open edX [devstack](https://github.com/openedx/devstack)
+1. Set up the Open edX `devstack <https://github.com/openedx/devstack>`_.
 
-Then, in the `src` directory of your devstack, run:
+2. Then, in the ``src`` directory of your devstack, run:
 
 .. code-block::
-  git clone git@github.com:open-craft/section-to-course.git
+
+    git clone git@github.com:open-craft/section-to-course.git
 
 Then, in your `devstack` directory, run:
 
@@ -63,7 +64,7 @@ Reporting Security Issues
 
 Please do not report security issues in public. Please email help@opencraft.com.
 
-.. |license-badge| image:: https://img.shields.io/github/license/openedx/section-to-course.svg
+.. |license-badge| image:: https://img.shields.io/github/license/open-craft/section-to-course.svg
     :target: https://github.com/open-craft/section-to-course/blob/main/LICENSE.txt
     :alt: License
 

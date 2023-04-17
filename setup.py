@@ -104,9 +104,9 @@ setup(
     version=VERSION,
     description="""Factors sections from Open edX courses into their own new course.""",
     long_description=README,
-    author='edX',
-    author_email='oscm@edx.org',
-    url='https://github.com/openedx/section-to-course',
+    author='OpenCraft',
+    author_email='help@opencraft.com',
+    url='https://github.com/open-craft/section-to-course',
     packages=find_packages(
         include=['section_to_course', 'section_to_course.*'],
         exclude=["*tests"],
