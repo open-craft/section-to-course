@@ -112,9 +112,6 @@ setup(
         exclude=["*tests"],
     ),
     entry_points={
-        "lms.djangoapp": [
-            "section_to_course = section_to_course.apps:SectionToCourseConfig",
-        ],
         "cms.djangoapp": [
             "section_to_course = section_to_course.apps:SectionToCourseConfig",
         ],

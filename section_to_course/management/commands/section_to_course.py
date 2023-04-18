@@ -4,8 +4,12 @@ Django command for converting a section into a course.
 
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
-from section_to_course.utils import paste_from_template
+from opaque_keys import InvalidKeyError
+from opaque_keys.edx.keys import CourseKey
+from opaque_keys.edx.locator import BlockUsageLocator
+from xmodule.modulestore.exceptions import ItemNotFoundError
 
+from section_to_course.utils import paste_from_template
 
 User = get_user_model()
 
@@ -19,14 +23,32 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('destination_course_id', type=str)
-        parser.add_argument('section_id', type=str)
+        parser.add_argument('source_section_id', type=str)
         parser.add_argument('username', type=str)
 
     def handle(self, *args, **options):
-        user = User.objects.get(username=options['username'])
-        paste_from_template(
-            destination_course_id=options['destination_course_id'],
-            block_id=options['section_id'],
-            user=user,
-        )
+        try:
+            user = User.objects.get(username=options['username'])
+        except User.DoesNotExist:
+            self.stderr.write(self.style.ERROR(f'User "{options["username"]}" does not exist.'))
+            return
+        try:
+            destination_course_key = CourseKey.from_string(options['destination_course_id'])
+        except InvalidKeyError:
+            self.stderr.write(self.style.ERROR(f'"{options["destination_course_id"]}" is not a valid course key.'))
+            return
+        try:
+            source_block_usage_key = BlockUsageLocator.from_string(options['source_section_id'])
+        except InvalidKeyError:
+            self.stderr.write(self.style.ERROR(f'"{options["source_section_id"]}" is not a valid block usage key.'))
+            return
+        try:
+            paste_from_template(
+                destination_course_key=destination_course_key,
+                source_block_usage_key=source_block_usage_key,
+                user=user,
+            )
+        except ItemNotFoundError as err:
+            self.stderr.write(self.style.ERROR(str(err)))
+            return
         self.stdout.write(self.style.SUCCESS('Section copied successfully.'))

@@ -4,3 +4,5 @@
 Django             # Web application framework
 django-model-utils        # Provides TimeStampedModel abstract base class
 edx_django_utils          # Provides helpers for Django applications
+edx-opaque-keys           # Opaque key fields/classes for Open edX
+xblock                    # XBlock core library

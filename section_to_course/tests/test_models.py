@@ -3,6 +3,7 @@
 Tests for the `section-to-course` models module.
 """
 from django.test import TestCase
+
 from section_to_course.models import SectionToCourseLink
 
 
