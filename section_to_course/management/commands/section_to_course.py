@@ -1,6 +1,7 @@
 """
 Django command for converting a section into a course.
 """
+import sys
 
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
@@ -22,8 +23,8 @@ class Command(BaseCommand):
     help = 'Converts a section into a course'
 
     def add_arguments(self, parser):
-        parser.add_argument('destination_course_id', type=str)
         parser.add_argument('source_section_id', type=str)
+        parser.add_argument('destination_course_id', type=str)
         parser.add_argument('username', type=str)
 
     def handle(self, *args, **options):
@@ -31,17 +32,17 @@ class Command(BaseCommand):
             user = User.objects.get(username=options['username'])
         except User.DoesNotExist:
             self.stderr.write(self.style.ERROR(f'User "{options["username"]}" does not exist.'))
-            return
+            sys.exit(1)
         try:
             destination_course_key = CourseKey.from_string(options['destination_course_id'])
         except InvalidKeyError:
             self.stderr.write(self.style.ERROR(f'"{options["destination_course_id"]}" is not a valid course key.'))
-            return
+            sys.exit(2)
         try:
             source_block_usage_key = BlockUsageLocator.from_string(options['source_section_id'])
         except InvalidKeyError:
             self.stderr.write(self.style.ERROR(f'"{options["source_section_id"]}" is not a valid block usage key.'))
-            return
+            sys.exit(3)
         try:
             paste_from_template(
                 destination_course_key=destination_course_key,
@@ -50,5 +51,5 @@ class Command(BaseCommand):
             )
         except ItemNotFoundError as err:
             self.stderr.write(self.style.ERROR(str(err)))
-            return
+            sys.exit(4)
         self.stdout.write(self.style.SUCCESS('Section copied successfully.'))

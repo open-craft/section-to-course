@@ -1,0 +1,2 @@
+The Makefile expects this directory to exist. It turns it into a module during testing by touching
+the __init__.py file. This appears to be a hack by upstream, though it's not clear why it's necessary.
