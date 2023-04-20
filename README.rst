@@ -27,9 +27,10 @@ One Time Setup
 Then, in your `devstack` directory, run:
 
 .. code-block::
-  make dev.shell.studio
-  cd /edx/src/section-to-course
-  pip install -e .
+
+    make dev.shell.studio
+    cd /edx/src/section-to-course
+    pip install -e .
 
 Running Tests
 -------------
@@ -37,7 +38,8 @@ Running Tests
 To run tests, within the studio shell, in `/edx/app/edxapp/edx-platform`, run:
 
 .. code-block::
-  DJANGO_SETTINGS_MODULE=cms.envs.test pytest --pyargs section_to_course --rootdir cms
+
+    DJANGO_SETTINGS_MODULE=cms.envs.test pytest --pyargs section_to_course --rootdir cms
 
 
 License
