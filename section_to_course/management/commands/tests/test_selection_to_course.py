@@ -5,7 +5,12 @@ from io import StringIO
 
 from common.djangoapps.student.tests.factories import UserFactory
 from django.core.management import call_command
-from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
+
+try:
+    from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
+except ImportError:
+    from xmodule.modulestore.tests.factories import ItemFactory as BlockFactory, CourseFactory
+
 from xmodule.modulestore.tests.utils import MixedSplitTestCase
 
 from section_to_course.models import SectionToCourseLink

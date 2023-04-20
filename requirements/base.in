@@ -1,8 +1,5 @@
 # Core requirements for using this application
 -c constraints.txt
-
-Django             # Web application framework
-django-model-utils        # Provides TimeStampedModel abstract base class
-edx_django_utils          # Provides helpers for Django applications
-edx-opaque-keys           # Opaque key fields/classes for Open edX
-xblock                    # XBlock core library
+edx-opaque-keys>=2.3.0
+django>=3.2.15
+django-model-utils>=4.2.0

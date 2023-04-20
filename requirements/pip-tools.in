@@ -2,4 +2,4 @@
 
 -c constraints.txt
 
-pip-tools                 # Contains pip-compile, used to generate pip requirements files
+pip-tools>=6.6.0                 # Contains pip-compile, used to generate pip requirements files

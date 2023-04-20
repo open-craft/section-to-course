@@ -2,7 +2,11 @@
 Utility functions for section_to_course.
 """
 
-from cms.djangoapps.contentstore.views.block import duplicate_block, update_from_source
+try:
+    from cms.djangoapps.contentstore.views.block import duplicate_block, update_from_source
+except ImportError:
+    from cms.djangoapps.contentstore.views.item import duplicate_block, update_from_source
+
 from django.utils import timezone
 from xmodule.modulestore.django import modulestore
 from xmodule.modulestore.exceptions import ItemNotFoundError

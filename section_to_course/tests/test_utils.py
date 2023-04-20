@@ -6,7 +6,11 @@ from django.utils import timezone
 from freezegun import freeze_time
 from xmodule.modulestore.django import modulestore
 from xmodule.modulestore.tests.django_utils import ModuleStoreTestCase
-from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
+
+try:
+    from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
+except ImportError:
+    from xmodule.modulestore.tests.factories import ItemFactory as BlockFactory, CourseFactory
 
 from section_to_course.models import SectionToCourseLink
 from section_to_course.utils import paste_from_template
