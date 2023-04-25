@@ -8,46 +8,7 @@ Purpose
 
 Allows course authors to factor sections from Open edX courses into their own new course.
 
-Getting Started
-***************
-
-Developing
-==========
-
-One Time Setup
---------------
-1. Set up the Open edX `devstack <https://github.com/openedx/devstack>`_ using the `nutmeg.master` version as explained in `this guide <https://edx.readthedocs.io/projects/open-edx-devstack/en/latest/developing_on_named_release_branches.html>`_.
-
-Then, in the ``edx-platform`` repository root, run:
-
-.. code-block::
-
-    git remote add open-craft git@github.com:open-craft/edx-platform.git
-    git fetch open-craft
-    git checkout open-craft/opencraft-release/nutmeg.2
-
-2. Then, in the ``src`` directory of your devstack, run:
-
-.. code-block::
-
-    git clone git@github.com:open-craft/section-to-course.git
-
-Then, in your `devstack` directory, run:
-
-.. code-block::
-
-    make dev.shell.studio
-    cd /edx/src/section-to-course
-    pip install -e .
-
-Running Tests
--------------
-
-To run tests, within the studio shell, in `/edx/app/edxapp/edx-platform`, run:
-
-.. code-block::
-
-    DJANGO_SETTINGS_MODULE=cms.envs.test pytest --pyargs section_to_course --rootdir cms
+Check the `docs directory <docs/>`_ for details on how to set up and configure this application.
 
 
 License
