@@ -5,6 +5,7 @@ Utility functions for section_to_course.
 try:
     from cms.djangoapps.contentstore.views.block import duplicate_block, update_from_source
 except ImportError:
+    # This is no longer needed in Palm.
     from cms.djangoapps.contentstore.views.item import duplicate_block, update_from_source
 
 from django.utils import timezone
