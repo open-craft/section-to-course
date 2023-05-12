@@ -76,6 +76,8 @@ Once installed, the plugin should automatically register itself within Django. B
 
 The admin views are in the Django admin, under the "Section to Course" section. From there, you can create a new section to course link, which will create a new course with the same content as the section you selected. You can also view the list of existing section to course links, refresh them, and delete them.
 
+**Note:** The start date of a newly created course is in the future, so you will likely want to modify it in the "Schedule & Details" section in Studio.
+
 Relative due dates (optional)
 =============================
 
