@@ -1,0 +1,96 @@
+name: integration-tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  
+jobs:
+  run-tests:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        edx-platform-version: [ 'open-release/nutmeg.master' ]
+    env:
+      EDX_PLATFORM_PATH: './edx/app/edxapp/edx-platform'
+      SECTION_TO_COURSE_PATH: './edx/src/section-to-course'
+
+    name: section-to-course-gh-hosted-python-edx-plaform-${{ matrix.edx-platform-version }}
+    steps:
+      # Create the docker container directory structure
+      # Note: We do not have permission to create directory in root folder. 
+      #       So create folder structure relative to current directory.
+      - name: Create edx-platform directory
+        run: mkdir -p ${{ env.EDX_PLATFORM_PATH }}
+
+      - name: Checkout edx-platform repository
+        uses: actions/checkout@v3
+        with:
+          repository: openedx/edx-platform
+          ref: ${{ matrix.edx-platform-version }}
+          path: ${{ env.EDX_PLATFORM_PATH }}
+
+      - name: Checkout OpenCraft edx-platform code drift changes
+        uses: actions/checkout@v3
+        if: ${{ matrix.edx-platform-version }} == 'open-release/nutmeg.master'
+        with:
+          repository: open-craft/edx-platform
+          ref: 'opencraft-release/nutmeg.2'
+          path: ${{ env.EDX_PLATFORM_PATH }}
+
+      - name: install edx-platform required packages
+        run: sudo apt-get update && sudo apt-get install libxmlsec1-dev lynx
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.7.0
+        with:
+          mongodb-version: 4.4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+
+      - name: Get pip cache dir
+        id: pip-cache-dir
+        run: |
+          echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache pip dependencies
+        id: cache-dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pip-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements/edx/testing.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+  
+      - name: Install edx-platform required python dependencies
+        env:
+          PIP_SRC: ${{ runner.temp }}
+        working-directory: ${{ env.EDX_PLATFORM_PATH }}
+        run: |
+          if [[ "${{ matrix.edx-platform-version }}" == "master" ]]; then
+            make test-requirements
+          elif [[ "${{ matrix.edx-platform-version }}" == "open-release/nutmeg.master" ]]; then
+            pip install -r requirements/pip.txt
+            pip install -r requirements/edx/development.txt --src ${{ runner.temp }}
+            pip install "django~=3.2.0"
+          fi
+
+      - name: Create section-to-course directory
+        run: mkdir -p ${{ env.SECTION_TO_COURSE_PATH }}
+
+      - name: Checkout section-to-course repo
+        uses: actions/checkout@v3
+        with:
+          path: ${{ env.SECTION_TO_COURSE_PATH }}
+
+      - name: Install section-to-course
+        working-directory: ${{ env.SECTION_TO_COURSE_PATH }}
+        run: pip install -e .
+
+      - name: Run section-to-course integration test
+        working-directory: ${{ env.SECTION_TO_COURSE_PATH }}
+        run: make test_integration

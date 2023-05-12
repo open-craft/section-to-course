@@ -58,8 +58,8 @@ piptools: ## install pinned version of pip-compile and pip-sync
 requirements: piptools ## install development environment requirements
 	pip-sync -q requirements/dev.txt requirements/private.*
 
-test: export DJANGO_SETTINGS_MODULE=cms.envs.test
-test:
+test_integration: export DJANGO_SETTINGS_MODULE=cms.envs.test
+test_integration:
 	cd ../../app/edxapp/edx-platform/ && pytest --pyargs section_to_course --rootdir cms
 
 diff_cover: test ## find diff lines that need test coverage

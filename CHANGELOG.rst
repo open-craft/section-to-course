@@ -3,7 +3,7 @@ Change Log
 
 ..
    All enhancements and patches to section_to_course will be documented
-   in this file.  It adheres to the structure of https://keepachangelog.com/ ,
+   in this file. It adheres to the structure of https://keepachangelog.com/ ,
    but in reStructuredText instead of Markdown (for ease of incorporation into
    Sphinx documentation and the PyPI description).
 
@@ -14,7 +14,10 @@ Change Log
 Unreleased
 **********
 
-*
+Added
+=====
+
+* Github integration-tests action.
 
 [0.3.0] - 2023-05-12
 ********************
