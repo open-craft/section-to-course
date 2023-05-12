@@ -122,6 +122,7 @@ class TestSectionToCourseLinkAdmin(ModuleStoreTestCase, TestCase):
         assert dest_course.org == org.short_name
         assert dest_course.number == 'NC101'
         assert dest_course.location.run == '2023'
+        assert dest_course.self_paced
         # Should not create a new link if it's already made.
         response = self.create_section_to_course_link(course, section, org)
         assert 'A course with this number, org, and run already exists.' in response.content.decode('utf-8')

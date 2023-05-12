@@ -16,6 +16,7 @@ def create_course(
     number: str,
     run: str,
     display_name: str,
+    self_paced: bool = False,
 ):
     """
     Create a course to match a specific course key.
@@ -27,7 +28,7 @@ def create_course(
         org=org,
         number=number,
         run=run,
-        fields={'display_name': display_name}
+        fields={'display_name': display_name, 'self_paced': self_paced},
     )
 
 
