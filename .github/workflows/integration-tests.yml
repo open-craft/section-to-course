@@ -20,6 +20,9 @@ jobs:
           - branch: opencraft-release/nutmeg.2
             remote: open-craft
             release: nutmeg
+          - branch: fox/bb-7295-direct-copying
+            remote: open-craft
+            release: master
     env:
       EDX_PLATFORM_PATH: ./edx/app/edxapp/edx-platform
       SECTION_TO_COURSE_PATH: ./edx/src/section-to-course
