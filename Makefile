@@ -1,6 +1,6 @@
 .PHONY: clean compile_translations coverage diff_cover dummy_translations \
         extract_translations fake_translations help pii_check pull_translations push_translations \
-        quality requirements selfcheck test test-all upgrade validate install_transifex_client
+        quality requirements selfcheck test_integration test_package upgrade validate install_transifex_client
 
 .DEFAULT_GOAL := help
 
@@ -51,6 +51,9 @@ quality: ## check coding style with pycodestyle and pylint
 pii_check: ## check for PII annotations on all Django models
 	tox -e pii_check
 
+test_package: ## check if the Python package is formatted correctly
+	tox -e package
+
 piptools: ## install pinned version of pip-compile and pip-sync
 	pip install -r requirements/pip.txt
 	pip install -r requirements/pip-tools.txt
@@ -60,16 +63,12 @@ requirements: piptools ## install development environment requirements
 
 test_integration: export DJANGO_SETTINGS_MODULE=cms.envs.test
 test_integration:
-	cd ../../app/edxapp/edx-platform/ && pytest --pyargs section_to_course --rootdir cms
+	cd ../../app/edxapp/edx-platform/ && pytest --pyargs section_to_course --rootdir cms --cov section_to_course --cov-config=$(CURDIR)/.coveragerc --cov-report term-missing --cov-report=xml:$(CURDIR)/coverage.xml
 
-diff_cover: test ## find diff lines that need test coverage
+diff_cover: test_integration ## find diff lines that need test coverage
 	diff-cover coverage.xml
 
-test-all: quality pii_check ## run tests on every supported Python/Django combination
-	tox
-	tox -e docs
-
-validate: quality pii_check test ## run tests and quality checks
+validate: quality pii_check test_package ## run tests and quality checks
 
 selfcheck: ## check that the Makefile is well-formed
 	@echo "The Makefile is well-formed."

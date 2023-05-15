@@ -84,3 +84,12 @@ jobs:
       - name: Run section-to-course integration tests
         working-directory: ${{ env.SECTION_TO_COURSE_PATH }}
         run: make test_integration
+
+      - name: Run coverage
+        if: matrix.edx-platform.branch == 'opencraft-release/nutmeg.2'
+        uses: codecov/codecov-action@v3
+        with:
+          working-directory: ${{ env.SECTION_TO_COURSE_PATH }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: integration
+          fail_ci_if_error: true
