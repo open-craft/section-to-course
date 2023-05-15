@@ -1,43 +1,38 @@
-name: integration-tests
+name: Integration Tests
 
 on:
   pull_request:
   push:
-    branches:
-      - main
-  
+    branches: [main]
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
 jobs:
-  run-tests:
+  tests:
+    name: ${{ matrix.edx-platform.branch }} (${{ matrix.edx-platform.release }})
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
-        edx-platform-version: [ 'open-release/nutmeg.master' ]
+        edx-platform:
+          - branch: opencraft-release/nutmeg.2
+            remote: open-craft
+            release: nutmeg
     env:
-      EDX_PLATFORM_PATH: './edx/app/edxapp/edx-platform'
-      SECTION_TO_COURSE_PATH: './edx/src/section-to-course'
+      EDX_PLATFORM_PATH: ./edx/app/edxapp/edx-platform
+      SECTION_TO_COURSE_PATH: ./edx/src/section-to-course
 
-    name: section-to-course-gh-hosted-python-edx-plaform-${{ matrix.edx-platform-version }}
     steps:
-      # Create the docker container directory structure
-      # Note: We do not have permission to create directory in root folder. 
-      #       So create folder structure relative to current directory.
-      - name: Create edx-platform directory
-        run: mkdir -p ${{ env.EDX_PLATFORM_PATH }}
+      - name: Create directory structure
+        run: mkdir -p ${{ env.EDX_PLATFORM_PATH }} ${{ env.SECTION_TO_COURSE_PATH }}
 
       - name: Checkout edx-platform repository
         uses: actions/checkout@v3
         with:
-          repository: openedx/edx-platform
-          ref: ${{ matrix.edx-platform-version }}
-          path: ${{ env.EDX_PLATFORM_PATH }}
-
-      - name: Checkout OpenCraft edx-platform code drift changes
-        uses: actions/checkout@v3
-        if: ${{ matrix.edx-platform-version }} == 'open-release/nutmeg.master'
-        with:
-          repository: open-craft/edx-platform
-          ref: 'opencraft-release/nutmeg.2'
+          repository: ${{ matrix.edx-platform.remote }}/edx-platform
+          ref: ${{ matrix.edx-platform.branch }}
           path: ${{ env.EDX_PLATFORM_PATH }}
 
       - name: install edx-platform required packages
@@ -47,7 +42,7 @@ jobs:
         uses: supercharge/mongodb-github-action@1.7.0
         with:
           mongodb-version: 4.4
-      
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -55,8 +50,7 @@ jobs:
 
       - name: Get pip cache dir
         id: pip-cache-dir
-        run: |
-          echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+        run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache pip dependencies
         id: cache-dependencies
@@ -65,22 +59,18 @@ jobs:
           path: ${{ steps.pip-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements/edx/testing.txt') }}
           restore-keys: ${{ runner.os }}-pip-
-  
-      - name: Install edx-platform required python dependencies
+
+      - name: Install edx-platform required Python dependencies
         env:
           PIP_SRC: ${{ runner.temp }}
         working-directory: ${{ env.EDX_PLATFORM_PATH }}
         run: |
-          if [[ "${{ matrix.edx-platform-version }}" == "master" ]]; then
-            make test-requirements
-          elif [[ "${{ matrix.edx-platform-version }}" == "open-release/nutmeg.master" ]]; then
+          if [[ "${{ matrix.edx-platform.release }}" == "nutmeg" ]]; then
             pip install -r requirements/pip.txt
             pip install -r requirements/edx/development.txt --src ${{ runner.temp }}
-            pip install "django~=3.2.0"
+          else
+            make test-requirements
           fi
-
-      - name: Create section-to-course directory
-        run: mkdir -p ${{ env.SECTION_TO_COURSE_PATH }}
 
       - name: Checkout section-to-course repo
         uses: actions/checkout@v3
@@ -91,6 +81,6 @@ jobs:
         working-directory: ${{ env.SECTION_TO_COURSE_PATH }}
         run: pip install -e .
 
-      - name: Run section-to-course integration test
+      - name: Run section-to-course integration tests
         working-directory: ${{ env.SECTION_TO_COURSE_PATH }}
         run: make test_integration
