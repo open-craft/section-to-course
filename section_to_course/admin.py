@@ -252,6 +252,7 @@ class CreateSectionToCourseLink(forms.ModelForm):
             number=number,
             run=run,
             display_name=cleaned_data['new_course_name'],
+            self_paced=True,
         )
         return paste_from_template(
             destination_course_key=course.id,

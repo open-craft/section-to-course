@@ -16,6 +16,14 @@ Unreleased
 
 *
 
+[0.3.0] - 2023-05-12
+********************
+
+Changed
+=======
+
+* New section-based courses are self-paced.
+
 [0.2.0] - 2023-05-10
 ********************
 

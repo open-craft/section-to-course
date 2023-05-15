@@ -50,6 +50,24 @@ Then, in your ``devstack`` directory, run:
     cd /edx/src/section-to-course
     pip install -e .
 
+Configuration (optional)
+************************
+
+New courses are self-paced. If you want to set relative deadlines in them, follow the next steps:
+
+#. Add the following `Waffle Flags`_ (with ``Everyone: Yes``) in Django admin:
+
+    #. `studio.custom_relative_dates`_
+    #. `course_experience.relative_dates`_
+    #. `course_experience.relative_dates_disable_reset`_
+#. Go to `Django admin -> Course_Date_Signals -> Self paced relative dates`_ configs and add a config with ``Enabled: Yes``.
+
+.. _Waffle Flags: http://localhost:18000/admin/waffle/flag/
+.. _studio.custom_relative_dates: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html#featuretoggle-studio.custom_relative_dates
+.. _course_experience.relative_dates: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html#featuretoggle-course_experience.relative_dates
+.. _course_experience.relative_dates_disable_reset: https://edx.readthedocs.io/projects/edx-platform-technical/en/latest/featuretoggles.html#featuretoggle-course_experience.relative_dates_disable_reset
+.. _Django admin -> Course_Date_Signals -> Self paced relative dates: http://localhost:18000/admin/course_date_signals/selfpacedrelativedatesconfig/
+
 
 Usage
 *****
@@ -57,6 +75,17 @@ Usage
 Once installed, the plugin should automatically register itself within Django. Be sure to run database migrations.
 
 The admin views are in the Django admin, under the "Section to Course" section. From there, you can create a new section to course link, which will create a new course with the same content as the section you selected. You can also view the list of existing section to course links, refresh them, and delete them.
+
+**Note:** The start date of a newly created course is in the future, so you will likely want to modify it in the "Schedule & Details" section in Studio.
+
+Relative due dates (optional)
+=============================
+
+If you want to configure relative deadlines in your course, follow these steps:
+
+#. Mark a subsection in the newly created course as graded (otherwise, deadlines will be enforced but learners will not see these dates in the LMS).
+#. Enter the number of weeks in the subsection's "Due in" field.
+#. You may also want to adjust the new course's grading policy to change the weight of the section.
 
 Refreshing a Course
 ===================
