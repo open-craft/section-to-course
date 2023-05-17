@@ -117,11 +117,9 @@ class TestSectionToCourseLinkAdmin(ModuleStoreTestCase, TestCase):
         link = SectionToCourseLink.objects.get()
         assert link.source_course_id == course.id
         assert link.source_section_id == section.location
+        update_outline_from_modulestore(link.destination_course_id)
         dest_course = get_course(link.destination_course_id)
-        assert dest_course.display_name == 'New Course'
-        assert dest_course.org == org.short_name
-        assert dest_course.number == 'NC101'
-        assert dest_course.location.run == '2023'
+        assert dest_course.title == 'New Course'
         assert dest_course.self_paced
         # Should not create a new link if it's already made.
         response = self.create_section_to_course_link(course, section, org)

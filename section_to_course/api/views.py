@@ -10,34 +10,8 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ..compat import course_exists, get_course_outline, modulestore
+from ..compat import course_exists, get_course_outline
 from ..models import SectionToCourseLink
-
-
-class CourseAutocomplete(APIView):
-    """
-    Autocomplete API endpoint for courses.
-    """
-
-    permission_classes = [IsAdminUser]
-
-    def get(self, request):
-        """
-        Get all courses and match a search term against them.
-        """
-        self.check_permissions(request)
-        section_courses = set(SectionToCourseLink.objects.values_list('destination_course_id', flat=True))
-        all_courses = [
-            {'id': str(course.id), 'text': f'{course.display_name} ({course.id})'}
-            for course in modulestore().get_courses()
-            if course.id not in section_courses
-        ]
-        term = request.GET.get('term', '').lower()
-        courses = [
-            entry for entry in all_courses
-            if entry['id'].lower().startswith(term) or entry['text'].lower().startswith(term)
-        ]
-        return Response(data={'results': courses}, status=status.HTTP_200_OK)
 
 
 class SectionAutocomplete(APIView):
