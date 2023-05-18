@@ -53,7 +53,7 @@ def get_course(course_key: CourseLocator):
     """
     Get a course from the modulestore.
     """
-    return modulestore().get_course(course_key)
+    return get_course_outline(course_key)
 
 
 def modulestore():

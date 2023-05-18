@@ -14,6 +14,15 @@ Change Log
 Unreleased
 **********
 
+
+[0.4.0] - 2023-05-18
+********************
+
+Changed
+=======
+
+* Removed course autocomplete for performance reasons. Source courses must now be specified by course key pasted into the source course ID field.
+
 Added
 =====
 

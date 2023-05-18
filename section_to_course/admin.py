@@ -76,18 +76,6 @@ class ArbitraryAutocompleteSelect(AutocompleteSelect):
         return attrs
 
 
-class CourseAutocompleteSelect(ArbitraryAutocompleteSelect):
-    """
-    Widget which will autocomplete course IDs.
-    """
-
-    def get_url(self):
-        """
-        Get the URL for the course autocomplete function.
-        """
-        return reverse('section_to_course:course_autocomplete')
-
-
 class SectionAutocompleteSelect(ArbitraryAutocompleteSelect):
     """
     Widget which will autocomplete section IDs.
@@ -159,7 +147,6 @@ class CreateSectionToCourseLink(forms.ModelForm):
 
     source_course_id = forms.CharField(
         max_length=127,
-        widget=CourseAutocompleteSelect('source_course_id'),
     )
     source_section_id = forms.CharField(
         max_length=255,
