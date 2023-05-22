@@ -95,6 +95,7 @@ edx-django-utils==5.4.0
     #   edx-drf-extensions
 edx-drf-extensions==8.7.0
     # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   edx-organizations
 edx-lint==5.3.4
@@ -112,7 +113,7 @@ exceptiongroup==1.1.1
     #   pytest
 factory-boy==3.2.1
     # via -r requirements/test.txt
-faker==18.7.0
+faker==18.9.0
     # via
     #   -r requirements/test.txt
     #   factory-boy
@@ -178,7 +179,7 @@ pycparser==2.21
     # via
     #   -r requirements/test.txt
     #   cffi
-pycryptodomex==3.17
+pycryptodomex==3.18.0
     # via
     #   -r requirements/test.txt
     #   pyjwkest
@@ -203,7 +204,7 @@ pylint-celery==0.3
     # via edx-lint
 pylint-django==2.5.3
     # via edx-lint
-pylint-plugin-utils==0.8.1
+pylint-plugin-utils==0.8.2
     # via
     #   pylint-celery
     #   pylint-django
