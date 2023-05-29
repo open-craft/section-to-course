@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-asgiref==3.6.0
+asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
@@ -28,7 +28,7 @@ click==8.1.3
     #   edx-django-utils
 code-annotations==1.3.0
     # via -r requirements/test.in
-coverage[toml]==7.2.5
+coverage[toml]==7.2.6
     # via pytest-cov
 cryptography==40.0.2
     # via
@@ -78,9 +78,8 @@ edx-django-utils==5.4.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.7.0
+edx-drf-extensions==8.8.0
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
     #   edx-organizations
 edx-opaque-keys==2.3.0
@@ -98,10 +97,6 @@ faker==18.9.0
     # via factory-boy
 freezegun==1.2.2
     # via -r requirements/test.in
-future==0.18.3
-    # via
-    #   -r requirements/base.txt
-    #   pyjwkest
 idna==3.4
     # via
     #   -r requirements/base.txt
@@ -136,14 +131,6 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.18.0
-    # via
-    #   -r requirements/base.txt
-    #   pyjwkest
-pyjwkest==1.4.2
-    # via
-    #   -r requirements/base.txt
-    #   edx-drf-extensions
 pyjwt[crypto]==2.7.0
     # via
     #   -r requirements/base.txt
@@ -161,7 +148,7 @@ pytest==7.3.1
     # via
     #   pytest-cov
     #   pytest-django
-pytest-cov==4.0.0
+pytest-cov==4.1.0
     # via -r requirements/test.in
 pytest-django==4.5.2
     # via -r requirements/test.in
@@ -180,11 +167,10 @@ pytz==2023.3
     #   djangorestframework
 pyyaml==6.0
     # via code-annotations
-requests==2.30.0
+requests==2.31.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-    #   pyjwkest
 semantic-version==2.10.0
     # via
     #   -r requirements/base.txt
@@ -193,7 +179,6 @@ six==1.16.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-    #   pyjwkest
     #   python-dateutil
 sqlparse==0.4.4
     # via
@@ -211,6 +196,10 @@ tomli==2.0.1
     # via
     #   coverage
     #   pytest
+typing-extensions==4.6.2
+    # via
+    #   -r requirements/base.txt
+    #   asgiref
 urllib3==2.0.2
     # via
     #   -r requirements/base.txt
