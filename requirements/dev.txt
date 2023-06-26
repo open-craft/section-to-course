@@ -134,7 +134,7 @@ exceptiongroup==1.1.1
     #   pytest
 factory-boy==3.2.1
     # via -r requirements/quality.txt
-faker==18.10.1
+faker==18.11.1
     # via
     #   -r requirements/quality.txt
     #   factory-boy
@@ -198,13 +198,13 @@ pillow==9.5.0
     #   edx-organizations
 pip-tools==6.13.0
     # via -r requirements/pip-tools.txt
-platformdirs==3.6.0
+platformdirs==3.8.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   pylint
     #   virtualenv
-pluggy==1.0.0
+pluggy==1.2.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -268,7 +268,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.3.2
+pytest==7.4.0
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
