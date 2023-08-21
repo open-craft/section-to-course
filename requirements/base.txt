@@ -14,7 +14,7 @@ cffi==1.15.1
     #   pynacl
 charset-normalizer==3.2.0
     # via requests
-click==8.1.6
+click==8.1.7
     # via edx-django-utils
 cryptography==41.0.3
     # via pyjwt
@@ -58,7 +58,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
-edx-drf-extensions==8.8.0
+edx-drf-extensions==8.9.0
     # via edx-organizations
 edx-opaque-keys==2.4.0
     # via
@@ -69,7 +69,7 @@ edx-organizations==6.12.1
     # via -r requirements/base.in
 idna==3.4
     # via requests
-newrelic==8.10.0
+newrelic==8.10.1
     # via edx-django-utils
 pbr==5.11.1
     # via stevedore
