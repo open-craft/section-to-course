@@ -13,7 +13,7 @@ astroid==2.15.6
     #   -r requirements/quality.txt
     #   pylint
     #   pylint-celery
-build==0.10.0
+build==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -114,7 +114,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.9.1
+edx-drf-extensions==8.9.2
     # via
     #   -r requirements/quality.txt
     #   edx-organizations
@@ -139,7 +139,7 @@ faker==19.3.1
     # via
     #   -r requirements/quality.txt
     #   factory-boy
-filelock==3.12.2
+filelock==3.12.3
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -150,6 +150,10 @@ idna==3.4
     # via
     #   -r requirements/quality.txt
     #   requests
+importlib-metadata==6.8.0
+    # via
+    #   -r requirements/pip-tools.txt
+    #   build
 iniconfig==2.0.0
     # via
     #   -r requirements/quality.txt
@@ -175,7 +179,7 @@ mccabe==0.7.0
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==8.11.0
+newrelic==9.0.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -269,7 +273,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.4.0
+pytest==7.4.1
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -357,17 +361,19 @@ tox-battery==0.6.2
     # via -r requirements/ci.txt
 typing-extensions==4.7.1
     # via
+    #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   asgiref
     #   astroid
     #   edx-opaque-keys
     #   faker
+    #   filelock
     #   pylint
 urllib3==2.0.4
     # via
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.24.3
+virtualenv==20.24.4
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -379,6 +385,10 @@ wrapt==1.15.0
     # via
     #   -r requirements/quality.txt
     #   astroid
+zipp==3.16.2
+    # via
+    #   -r requirements/pip-tools.txt
+    #   importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

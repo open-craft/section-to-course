@@ -58,7 +58,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
-edx-drf-extensions==8.9.1
+edx-drf-extensions==8.9.2
     # via edx-organizations
 edx-opaque-keys==2.5.0
     # via
@@ -69,7 +69,7 @@ edx-organizations==6.12.1
     # via -r requirements/base.in
 idna==3.4
     # via requests
-newrelic==8.11.0
+newrelic==9.0.0
     # via edx-django-utils
 pbr==5.11.1
     # via stevedore
