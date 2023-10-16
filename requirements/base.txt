@@ -58,7 +58,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
-edx-drf-extensions==8.10.0
+edx-drf-extensions==8.11.1
     # via edx-organizations
 edx-opaque-keys==2.5.1
     # via
@@ -73,9 +73,9 @@ newrelic==9.1.0
     # via edx-django-utils
 pbr==5.11.1
     # via stevedore
-pillow==10.0.1
+pillow==10.1.0
     # via edx-organizations
-psutil==5.9.5
+psutil==5.9.6
     # via edx-django-utils
 pycparser==2.21
     # via cffi
@@ -83,6 +83,7 @@ pyjwt[crypto]==2.8.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
+    #   pyjwt
 pymongo==3.13.0
     # via edx-opaque-keys
 pynacl==1.5.0
