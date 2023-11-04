@@ -1,7 +1,7 @@
 """
 Tests for the admin views of the section_to_course app.
 """
-from common.djangoapps.student.tests.factories import UserFactory, TEST_PASSWORD  # pylint: disable=import-error
+from common.djangoapps.student.tests.factories import TEST_PASSWORD, UserFactory  # pylint: disable=import-error
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone

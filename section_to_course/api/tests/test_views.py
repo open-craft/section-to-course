@@ -3,7 +3,7 @@ Tests for the API views of section_to_course.
 """
 
 # pylint: disable=no-self-use
-from common.djangoapps.student.tests.factories import UserFactory, TEST_PASSWORD
+from common.djangoapps.student.tests.factories import TEST_PASSWORD, UserFactory
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -47,7 +47,7 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'course-v1:edX+DemoX+Demo_Course'})
         )
-        assert response.status_code == status.HTTP_403_FORBIDDEN
+        assert response.status_code in (status.HTTP_401_UNAUTHORIZED, status.HTTP_403_FORBIDDEN)
 
     def test_rejects_unauthorized(self):
         """

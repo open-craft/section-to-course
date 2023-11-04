@@ -20,6 +20,12 @@ jobs:
           - branch: opencraft-release/nutmeg.2
             remote: open-craft
             release: nutmeg
+          - branch: opencraft-release/palm.1
+            remote: open-craft
+            release: palm
+          - branch: open-release/quince.master
+            remote: openedx
+            release: quince
           - branch: master
             remote: openedx
             release: master
