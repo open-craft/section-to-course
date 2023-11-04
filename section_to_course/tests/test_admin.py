@@ -1,7 +1,7 @@
 """
 Tests for the admin views of the section_to_course app.
 """
-from common.djangoapps.student.tests.factories import UserFactory  # pylint: disable=import-error
+from common.djangoapps.student.tests.factories import UserFactory, TEST_PASSWORD  # pylint: disable=import-error
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
@@ -31,7 +31,7 @@ class TestSectionToCourseLinkAdmin(ModuleStoreTestCase, TestCase):
         """Set up our admin test cases."""
         super().setUp()
         user = UserFactory.create(is_staff=True, is_superuser=True)
-        self.client.login(username=user.username, password='test')
+        self.client.login(username=user.username, password=TEST_PASSWORD)
 
     def test_listing(self):
         """Test that the admin listing page loads."""
