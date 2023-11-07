@@ -92,10 +92,15 @@ def duplicate_block(
     Duplicate a block using the upstream function.
     """
     try:
+        # Quince and newer
         from cms.djangoapps.contentstore.utils import duplicate_block as upstream_duplicate_block
     except ImportError:
-        # This is no longer needed in Palm.
-        from cms.djangoapps.contentstore.views.item import duplicate_block as upstream_duplicate_block
+        try:
+            # Palm
+            from cms.djangoapps.contentstore.views.block import duplicate_block as upstream_duplicate_block
+        except ModuleNotFoundError:
+            # Nutmeg
+            from cms.djangoapps.contentstore.views.item import duplicate_block as upstream_duplicate_block
     return upstream_duplicate_block(
         parent_usage_key=destination_course.location,
         duplicate_source_usage_key=source_block_usage_key,
@@ -115,10 +120,15 @@ def update_from_source(
     Update a block's attributes from a source block. See upstream function.
     """
     try:
+        # Quince and newer
         from cms.djangoapps.contentstore.utils import update_from_source as upstream_update_from_source
     except ImportError:
-        # This is no longer needed in Palm.
-        from cms.djangoapps.contentstore.views.item import update_from_source as upstream_update_from_source
+        try:
+            # Palm
+            from cms.djangoapps.contentstore.views.block import update_from_source as upstream_update_from_source
+        except ModuleNotFoundError:
+            # Nutmeg
+            from cms.djangoapps.contentstore.views.item import update_from_source as upstream_update_from_source
     upstream_update_from_source(
         source_block=source_block, destination_block=destination_block, user_id=user.id,
     )

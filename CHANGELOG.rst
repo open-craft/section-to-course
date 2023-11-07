@@ -14,6 +14,13 @@ Change Log
 Unreleased
 **********
 
+[0.4.1] - 2023-11-07
+********************
+
+Fixed
+=======
+
+* Compatibility of ``compat`` imports with Palm.
 
 [0.4.0] - 2023-05-18
 ********************
