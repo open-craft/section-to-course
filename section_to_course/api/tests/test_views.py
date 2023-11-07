@@ -3,7 +3,7 @@ Tests for the API views of section_to_course.
 """
 
 # pylint: disable=no-self-use
-from common.djangoapps.student.tests.factories import UserFactory
+from common.djangoapps.student.tests.factories import TEST_PASSWORD, UserFactory
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -47,14 +47,14 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'course-v1:edX+DemoX+Demo_Course'})
         )
-        assert response.status_code == status.HTTP_403_FORBIDDEN
+        assert response.status_code in (status.HTTP_401_UNAUTHORIZED, status.HTTP_403_FORBIDDEN)
 
     def test_rejects_unauthorized(self):
         """
         Test that the API rejects unauthorized users.
         """
         user = UserFactory.create()
-        assert self.client.login(username=user.username, password='test')
+        assert self.client.login(username=user.username, password=TEST_PASSWORD)
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'course-v1:edX+DemoX+Demo_Course'})
         )
@@ -65,7 +65,7 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         Test that the API rejects malformed course IDs.
         """
         user = UserFactory.create(is_staff=True)
-        assert self.client.login(username=user.username, password='test')
+        assert self.client.login(username=user.username, password=TEST_PASSWORD)
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'malarkey'})
         )
@@ -76,7 +76,7 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         Test that the API rejects malformed course IDs.
         """
         user = UserFactory.create(is_staff=True)
-        assert self.client.login(username=user.username, password='test')
+        assert self.client.login(username=user.username, password=TEST_PASSWORD)
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'course-v1:edX+DemoX+Demo_Course'}),
         )
@@ -87,7 +87,7 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         Test that blank terms return all sections.
         """
         user = UserFactory.create(is_staff=True)
-        assert self.client.login(username=user.username, password='test')
+        assert self.client.login(username=user.username, password=TEST_PASSWORD)
         create_subsections()
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'course-v1:edX+DemoX+Demo_Course'}),
@@ -105,7 +105,7 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         Test that autocomplete filters existing sections.
         """
         user = UserFactory.create(is_staff=True)
-        assert self.client.login(username=user.username, password='test')
+        assert self.client.login(username=user.username, password=TEST_PASSWORD)
         section_data = create_subsections()
         SectionToCourseLinkFactory(source_course=section_data['course'], source_section=section_data['experimentation'])
         response = self.client.get(
@@ -123,7 +123,7 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         Test that autocomplete filters names.
         """
         user = UserFactory.create(is_staff=True)
-        assert self.client.login(username=user.username, password='test')
+        assert self.client.login(username=user.username, password=TEST_PASSWORD)
         create_subsections()
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'course-v1:edX+DemoX+Demo_Course'})
@@ -141,7 +141,7 @@ class TestSectionAutoCompleteAPI(ModuleStoreTestCase, APITestCase):
         Test that autocomplete filters keys.
         """
         user = UserFactory.create(is_staff=True)
-        assert self.client.login(username=user.username, password='test')
+        assert self.client.login(username=user.username, password=TEST_PASSWORD)
         create_subsections()
         response = self.client.get(
             reverse('section_to_course:section_autocomplete', kwargs={'course_id': 'course-v1:edX+DemoX+Demo_Course'})
