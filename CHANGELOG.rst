@@ -14,11 +14,31 @@ Change Log
 Unreleased
 **********
 
+[0.4.2] - 2023-11-15
+********************
+
+Changed
+=======
+
+* Upgraded tox from ``v3`` to ``v4`` and removed ``tox-battery``.
+
+Added
+=====
+
+* Created a new test for missing migrations and added it to the CI.
+
+Fixed
+=====
+
+* Added a missing Django migration.
+* Replaced the invalid ``ROOT_URLCONF`` in ``test_settings.py``.
+* Made ``./manage.py`` executable.
+
 [0.4.1] - 2023-11-07
 ********************
 
 Fixed
-=======
+=====
 
 * Compatibility of ``compat`` imports with Palm.
 
