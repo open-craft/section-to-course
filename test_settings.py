@@ -41,7 +41,7 @@ LOCALE_PATHS = [
     root('section_to_course', 'conf', 'locale'),
 ]
 
-ROOT_URLCONF = 'section_to_course.urls'
+ROOT_URLCONF = 'section_to_course.api.urls'
 
 SECRET_KEY = 'insecure-secret-key'
 
