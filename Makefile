@@ -1,6 +1,7 @@
 .PHONY: clean compile_translations coverage diff_cover dummy_translations \
         extract_translations fake_translations help pii_check pull_translations push_translations \
-        quality requirements selfcheck test_integration test_package upgrade validate install_transifex_client
+        quality requirements selfcheck test_integration test_package test_migrations upgrade validate \
+        install_transifex_client
 
 .DEFAULT_GOAL := help
 
@@ -53,6 +54,9 @@ pii_check: ## check for PII annotations on all Django models
 
 test_package: ## check if the Python package is formatted correctly
 	tox -e package
+
+test_migrations: ## check that Django migrations reflect all model changes
+	tox -e migrations
 
 piptools: ## install pinned version of pip-compile and pip-sync
 	pip install -r requirements/pip.txt
