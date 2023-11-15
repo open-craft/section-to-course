@@ -17,6 +17,10 @@ build==1.0.3
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
+cachetools==5.3.2
+    # via
+    #   -r requirements/ci.txt
+    #   tox
 certifi==2023.7.22
     # via
     #   -r requirements/quality.txt
@@ -27,7 +31,10 @@ cffi==1.16.0
     #   cryptography
     #   pynacl
 chardet==5.2.0
-    # via diff-cover
+    # via
+    #   -r requirements/ci.txt
+    #   diff-cover
+    #   tox
 charset-normalizer==3.3.2
     # via
     #   -r requirements/quality.txt
@@ -49,6 +56,10 @@ code-annotations==1.5.0
     # via
     #   -r requirements/quality.txt
     #   edx-lint
+colorama==0.4.6
+    # via
+    #   -r requirements/ci.txt
+    #   tox
 coverage[toml]==7.3.2
     # via
     #   -r requirements/quality.txt
@@ -188,6 +199,7 @@ packaging==23.2
     #   -r requirements/pip-tools.txt
     #   -r requirements/quality.txt
     #   build
+    #   pyproject-api
     #   pytest
     #   tox
 path==16.7.1
@@ -208,6 +220,7 @@ platformdirs==3.11.0
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   pylint
+    #   tox
     #   virtualenv
 pluggy==1.3.0
     # via
@@ -222,10 +235,6 @@ psutil==5.9.6
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
-py==1.11.0
-    # via
-    #   -r requirements/ci.txt
-    #   tox
 pycodestyle==2.11.1
     # via -r requirements/quality.txt
 pycparser==2.21
@@ -270,6 +279,10 @@ pynacl==1.5.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
+pyproject-api==1.6.1
+    # via
+    #   -r requirements/ci.txt
+    #   tox
 pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
@@ -312,11 +325,9 @@ semantic-version==2.10.0
     #   edx-drf-extensions
 six==1.16.0
     # via
-    #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   edx-lint
     #   python-dateutil
-    #   tox
 snowballstemmer==2.2.0
     # via
     #   -r requirements/quality.txt
@@ -344,6 +355,7 @@ tomli==2.0.1
     #   coverage
     #   pip-tools
     #   pylint
+    #   pyproject-api
     #   pyproject-hooks
     #   pytest
     #   tox
@@ -351,11 +363,7 @@ tomlkit==0.12.3
     # via
     #   -r requirements/quality.txt
     #   pylint
-tox==3.28.0
-    # via
-    #   -r requirements/ci.txt
-    #   tox-battery
-tox-battery==0.6.2
+tox==4.11.3
     # via -r requirements/ci.txt
 typing-extensions==4.8.0
     # via
