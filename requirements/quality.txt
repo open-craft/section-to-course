@@ -38,7 +38,7 @@ code-annotations==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage[toml]==7.3.2
+coverage[toml]==7.3.3
     # via
     #   -r requirements/test.txt
     #   coverage
@@ -128,7 +128,7 @@ iniconfig==2.0.0
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.13.1
+isort==5.13.2
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -164,7 +164,7 @@ pluggy==1.3.0
     # via
     #   -r requirements/test.txt
     #   pytest
-psutil==5.9.6
+psutil==5.9.7
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
