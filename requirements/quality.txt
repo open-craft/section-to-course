@@ -95,7 +95,7 @@ edx-django-utils==5.9.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==9.0.1
+edx-drf-extensions==9.1.1
     # via
     #   -r requirements/test.txt
     #   edx-organizations
@@ -154,7 +154,7 @@ pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pillow==10.1.0
+pillow==10.2.0
     # via
     #   -r requirements/test.txt
     #   edx-organizations
