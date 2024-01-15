@@ -95,7 +95,7 @@ edx-django-utils==5.9.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==9.0.1
+edx-drf-extensions==9.1.2
     # via
     #   -r requirements/test.txt
     #   edx-organizations
@@ -114,7 +114,7 @@ exceptiongroup==1.2.0
     #   pytest
 factory-boy==3.3.0
     # via -r requirements/test.txt
-faker==22.0.0
+faker==22.2.0
     # via
     #   -r requirements/test.txt
     #   factory-boy
@@ -132,7 +132,7 @@ isort==5.13.2
     # via
     #   -r requirements/quality.in
     #   pylint
-jinja2==3.1.2
+jinja2==3.1.3
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -142,7 +142,7 @@ markupsafe==2.1.3
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==9.3.0
+newrelic==9.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -154,7 +154,7 @@ pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pillow==10.1.0
+pillow==10.2.0
     # via
     #   -r requirements/test.txt
     #   edx-organizations
