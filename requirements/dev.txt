@@ -126,7 +126,7 @@ edx-django-utils==5.9.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-drf-extensions==9.0.1
+edx-drf-extensions==9.1.2
     # via
     #   -r requirements/quality.txt
     #   edx-organizations
@@ -147,7 +147,7 @@ exceptiongroup==1.2.0
     #   pytest
 factory-boy==3.3.0
     # via -r requirements/quality.txt
-faker==22.0.0
+faker==22.2.0
     # via
     #   -r requirements/quality.txt
     #   factory-boy
@@ -174,12 +174,12 @@ isort==5.13.2
     # via
     #   -r requirements/quality.txt
     #   pylint
-jinja2==3.1.2
+jinja2==3.1.3
     # via
     #   -r requirements/quality.txt
     #   code-annotations
     #   diff-cover
-lxml==5.0.0
+lxml==5.1.0
     # via edx-i18n-tools
 markupsafe==2.1.3
     # via
@@ -189,7 +189,7 @@ mccabe==0.7.0
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==9.3.0
+newrelic==9.5.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -208,7 +208,7 @@ pbr==6.0.0
     # via
     #   -r requirements/quality.txt
     #   stevedore
-pillow==10.1.0
+pillow==10.2.0
     # via
     #   -r requirements/quality.txt
     #   edx-organizations
@@ -362,7 +362,7 @@ tomlkit==0.12.3
     # via
     #   -r requirements/quality.txt
     #   pylint
-tox==4.11.4
+tox==4.12.0
     # via -r requirements/ci.txt
 typing-extensions==4.9.0
     # via
