@@ -23,8 +23,8 @@ jobs:
           - branch: opencraft-release/palm.1
             remote: open-craft
             release: palm
-          - branch: open-release/quince.master
-            remote: openedx
+          - branch: opencraft-release/quince.1
+            remote: open-craft
             release: quince
           - branch: master
             remote: openedx
