@@ -16,7 +16,7 @@ charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via edx-django-utils
-cryptography==41.0.7
+cryptography==42.0.1
     # via pyjwt
 django==3.2.23
     # via
@@ -54,11 +54,11 @@ djangorestframework==3.14.0
     #   edx-organizations
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==5.9.0
+edx-django-utils==5.10.1
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
-edx-drf-extensions==9.1.2
+edx-drf-extensions==10.0.0
     # via edx-organizations
 edx-opaque-keys==2.5.1
     # via
@@ -69,13 +69,13 @@ edx-organizations==6.12.1
     # via -r requirements/base.in
 idna==3.6
     # via requests
-newrelic==9.5.0
+newrelic==9.6.0
     # via edx-django-utils
 pbr==6.0.0
     # via stevedore
 pillow==10.2.0
     # via edx-organizations
-psutil==5.9.7
+psutil==5.9.8
     # via edx-django-utils
 pycparser==2.21
     # via cffi
