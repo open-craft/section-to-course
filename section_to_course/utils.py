@@ -6,7 +6,7 @@ from django.utils import timezone
 
 from section_to_course.compat import (
     block_key_class,
-    derived_key,
+    derive_key,
     duplicate_block,
     modulestore,
     not_found_exception,
@@ -31,7 +31,7 @@ def paste_from_template(*, source_block_usage_key, destination_course_key, user)
     block_key = block_key_class()(source_block_usage_key.block_type, source_block_usage_key.block_id)
     block = store.get_item(source_block_usage_key)
     with store.bulk_operations(destination_course_key):
-        destination_key = derived_key(destination_course_key, block_key, destination_course)
+        destination_key = derive_key(destination_course_key, block_key, destination_course)
         destination_usage_key = destination_course_key.make_usage_key(
             destination_key.type, destination_key.id,
         )
