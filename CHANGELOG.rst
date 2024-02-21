@@ -14,6 +14,12 @@ Change Log
 Unreleased
 **********
 
+[0.4.3] - 2024-02-21
+********************
+Fixed
+=======
+* Compatibility of ``compat`` imports with post Quince releases.
+
 [0.4.2] - 2023-11-15
 ********************
 
