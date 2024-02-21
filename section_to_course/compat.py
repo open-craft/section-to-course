@@ -76,7 +76,11 @@ def block_key_class():
     """
     Get the BlockKey class from upstream.
     """
-    from xmodule.modulestore.split_mongo import BlockKey
+    try:
+        # Releases newer than Quince
+        from xmodule.util.keys import BlockKey
+    except ImportError:
+        from xmodule.modulestore.split_mongo import BlockKey
     return BlockKey
 
 
@@ -134,16 +138,24 @@ def update_from_source(
     )
 
 
-def derived_key(destination_course_key, block_key, destination_course):
+def derive_key(destination_course_key, block_key, destination_course):
     """
     Get the derived ID for a block duplicated from a source block. See upstream function.
     """
-    from xmodule.modulestore.store_utilities import derived_key as upstream_derived_key
-    return upstream_derived_key(
-        destination_course_key,
-        block_key,
-        destination_course,
-    )
+    try:
+        # Releases newer than Quince
+        from xmodule.util.keys import derive_key as upstream_derive_key
+        usage_key = destination_course_key.make_usage_key(
+            block_key.type, block_key.id,
+        )
+        return upstream_derive_key(usage_key, destination_course)
+    except ImportError:
+        from xmodule.modulestore.store_utilities import derived_key as upstream_derive_key
+        return upstream_derive_key(
+            destination_course_key,
+            block_key,
+            destination_course,
+        )
 
 
 def get_course_outline(course_key: CourseLocator):
