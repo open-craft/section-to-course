@@ -8,7 +8,7 @@ asgiref==3.7.2
     # via
     #   -r requirements/quality.txt
     #   django
-astroid==3.0.3
+astroid==3.1.0
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -60,11 +60,11 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.4.2
+coverage[toml]==7.4.3
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
-cryptography==42.0.4
+cryptography==42.0.5
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -188,7 +188,7 @@ mccabe==0.7.0
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==9.6.0
+newrelic==9.7.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -248,7 +248,7 @@ pyjwt[crypto]==2.8.0
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==3.0.3
+pylint==3.1.0
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -285,7 +285,7 @@ pyproject-hooks==1.0.0
     #   -r requirements/pip-tools.txt
     #   build
     #   pip-tools
-pytest==8.0.1
+pytest==8.0.2
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -334,7 +334,7 @@ sqlparse==0.4.4
     # via
     #   -r requirements/quality.txt
     #   django
-stevedore==5.1.0
+stevedore==5.2.0
     # via
     #   -r requirements/quality.txt
     #   code-annotations
@@ -363,7 +363,7 @@ tomlkit==0.12.3
     #   pylint
 tox==4.13.0
     # via -r requirements/ci.txt
-typing-extensions==4.9.0
+typing-extensions==4.10.0
     # via
     #   -r requirements/quality.txt
     #   asgiref
