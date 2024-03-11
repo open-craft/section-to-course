@@ -12,6 +12,10 @@ astroid==3.1.0
     # via
     #   pylint
     #   pylint-celery
+backports-zoneinfo==0.2.1
+    # via
+    #   -r requirements/test.txt
+    #   django
 certifi==2024.2.2
     # via
     #   -r requirements/test.txt
@@ -48,7 +52,7 @@ cryptography==42.0.5
     #   pyjwt
 dill==0.3.8
     # via pylint
-django==3.2.24
+django==4.2.11
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -90,7 +94,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -113,7 +117,7 @@ exceptiongroup==1.2.0
     #   pytest
 factory-boy==3.3.0
     # via -r requirements/test.txt
-faker==23.2.1
+faker==24.1.0
     # via
     #   -r requirements/test.txt
     #   factory-boy
@@ -145,7 +149,7 @@ newrelic==9.7.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-packaging==23.2
+packaging==24.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -202,7 +206,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pytest==8.0.2
+pytest==8.1.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -211,7 +215,7 @@ pytest-cov==4.1.0
     # via -r requirements/test.txt
 pytest-django==4.8.0
     # via -r requirements/test.txt
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via
     #   -r requirements/test.txt
     #   faker
@@ -223,7 +227,6 @@ python-slugify==8.0.4
 pytz==2024.1
     # via
     #   -r requirements/test.txt
-    #   django
     #   djangorestframework
 pyyaml==6.0.1
     # via
@@ -264,7 +267,7 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via pylint
 typing-extensions==4.10.0
     # via
