@@ -20,15 +20,23 @@ jobs:
           - branch: opencraft-release/nutmeg.2
             remote: open-craft
             release: nutmeg
+            python-version: 3.8
           - branch: opencraft-release/palm.1
             remote: open-craft
             release: palm
+            python-version: 3.8
           - branch: opencraft-release/quince.1
             remote: open-craft
             release: quince
+            python-version: 3.8
+          - branch: opencraft-release/redwood.1
+            remote: open-craft
+            release: redwood
+            python-version: 3.11
           - branch: master
             remote: openedx
             release: master
+            python-version: 3.11
     env:
       EDX_PLATFORM_PATH: ./edx/app/edxapp/edx-platform
       SECTION_TO_COURSE_PATH: ./edx/src/section-to-course
@@ -55,7 +63,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: ${{ matrix.edx-platform.python-version }}
 
       - name: Get pip cache dir
         id: pip-cache-dir
