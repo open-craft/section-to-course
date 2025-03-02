@@ -19,7 +19,7 @@ This application is not yet available on PyPI, so you will need to install it fr
     git+https://github.com/open-craft/section-to-course.git
 
 
-...to the ``requirements/private.txt`` file of your Open edX installation, and then run ``pip install -r requirements/private.txt``. If you're developing locally without the platform, create a virtualenv using the latest Python 3.8 release, and then run ``pip install -e .`` from the root of this repository.
+...to the ``requirements/private.txt`` file of your Open edX installation, and then run ``pip install -r requirements/private.txt``. If you're developing locally without the platform, create a virtualenv using the latest Python 3.11 release, and then run ``pip install -e .`` from the root of this repository.
 
 Development
 ===========

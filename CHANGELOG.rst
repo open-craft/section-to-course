@@ -14,10 +14,26 @@ Change Log
 Unreleased
 **********
 
+[0.5.0] - 2025-03-01
+********************
+
+Added
+=====
+
+* Support for Python 3.11 and 3.12.
+
+Removed
+=======
+
+* Support for Python 3.8.
+* Support for edx-platform releases older than Redwood.
+
 [0.4.3] - 2024-02-21
 ********************
+
 Fixed
-=======
+=====
+
 * Compatibility of ``compat`` imports with post Quince releases.
 
 [0.4.2] - 2023-11-15

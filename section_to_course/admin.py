@@ -33,7 +33,9 @@ class ArbitraryAutocompleteSelect(AutocompleteSelect):
     Autocomplete field for an arbitrary endpoint.
     """
 
-    def __init__(self, field_name, admin_site=None, attrs=None, choices=(), using=None):
+    def __init__(
+        self, field_name, admin_site=None, attrs=None, choices=(), using=None,
+    ):  # pylint: disable=too-many-positional-arguments
         """
         Initialize field with context.
 
