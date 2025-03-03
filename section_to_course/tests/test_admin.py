@@ -10,16 +10,11 @@ from opaque_keys.edx.locator import CourseLocator
 from organizations.tests.factories import OrganizationFactory
 from rest_framework import status
 from xmodule.modulestore.tests.django_utils import ModuleStoreTestCase  # pylint: disable=import-error
+from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory  # pylint: disable=import-error
 
 from ..compat import get_course, update_outline_from_modulestore
 from ..models import SectionToCourseLink
 from .factories import SectionToCourseLinkFactory
-
-try:
-    from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
-except ImportError:
-    from xmodule.modulestore.tests.factories import CourseFactory
-    from xmodule.modulestore.tests.factories import ItemFactory as BlockFactory
 
 
 class TestSectionToCourseLinkAdmin(ModuleStoreTestCase, TestCase):

@@ -76,11 +76,7 @@ def block_key_class():
     """
     Get the BlockKey class from upstream.
     """
-    try:
-        # Releases newer than Quince
-        from xmodule.util.keys import BlockKey
-    except ImportError:
-        from xmodule.modulestore.split_mongo import BlockKey
+    from xmodule.util.keys import BlockKey
     return BlockKey
 
 
@@ -95,16 +91,7 @@ def duplicate_block(
     """
     Duplicate a block using the upstream function.
     """
-    try:
-        # Quince and newer
-        from cms.djangoapps.contentstore.utils import duplicate_block as upstream_duplicate_block
-    except ImportError:
-        try:
-            # Palm
-            from cms.djangoapps.contentstore.views.block import duplicate_block as upstream_duplicate_block
-        except ModuleNotFoundError:
-            # Nutmeg
-            from cms.djangoapps.contentstore.views.item import duplicate_block as upstream_duplicate_block
+    from cms.djangoapps.contentstore.utils import duplicate_block as upstream_duplicate_block
     return upstream_duplicate_block(
         parent_usage_key=destination_course.location,
         duplicate_source_usage_key=source_block_usage_key,
@@ -123,16 +110,7 @@ def update_from_source(
     """
     Update a block's attributes from a source block. See upstream function.
     """
-    try:
-        # Quince and newer
-        from cms.djangoapps.contentstore.utils import update_from_source as upstream_update_from_source
-    except ImportError:
-        try:
-            # Palm
-            from cms.djangoapps.contentstore.views.block import update_from_source as upstream_update_from_source
-        except ModuleNotFoundError:
-            # Nutmeg
-            from cms.djangoapps.contentstore.views.item import update_from_source as upstream_update_from_source
+    from cms.djangoapps.contentstore.utils import update_from_source as upstream_update_from_source
     upstream_update_from_source(
         source_block=source_block, destination_block=destination_block, user_id=user.id,
     )
@@ -142,20 +120,11 @@ def derive_key(destination_course_key, block_key, destination_course):
     """
     Get the derived ID for a block duplicated from a source block. See upstream function.
     """
-    try:
-        # Releases newer than Quince
-        from xmodule.util.keys import derive_key as upstream_derive_key
-        usage_key = destination_course_key.make_usage_key(
-            block_key.type, block_key.id,
-        )
-        return upstream_derive_key(usage_key, destination_course)
-    except ImportError:
-        from xmodule.modulestore.store_utilities import derived_key as upstream_derive_key
-        return upstream_derive_key(
-            destination_course_key,
-            block_key,
-            destination_course,
-        )
+    from xmodule.util.keys import derive_key as upstream_derive_key
+    usage_key = destination_course_key.make_usage_key(
+        block_key.type, block_key.id,
+    )
+    return upstream_derive_key(usage_key, destination_course)
 
 
 def get_course_outline(course_key: CourseLocator):

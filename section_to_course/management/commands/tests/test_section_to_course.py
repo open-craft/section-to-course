@@ -5,13 +5,7 @@ from io import StringIO
 
 from common.djangoapps.student.tests.factories import UserFactory  # pylint: disable=import-error
 from django.core.management import call_command
-
-try:
-    from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
-except ImportError:
-    # This is no longer needed in Palm.
-    from xmodule.modulestore.tests.factories import ItemFactory as BlockFactory, CourseFactory
-
+from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory  # pylint: disable=import-error
 from xmodule.modulestore.tests.utils import MixedSplitTestCase  # pylint: disable=import-error
 
 from section_to_course.models import SectionToCourseLink

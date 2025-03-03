@@ -8,15 +8,10 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from xmodule.modulestore.tests.django_utils import ModuleStoreTestCase
+from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory  # pylint: disable=import-error
 
 from section_to_course.compat import update_outline_from_modulestore
 from section_to_course.tests.factories import SectionToCourseLinkFactory
-
-try:
-    from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
-except ImportError:
-    from xmodule.modulestore.tests.factories import CourseFactory
-    from xmodule.modulestore.tests.factories import ItemFactory as BlockFactory
 
 
 def create_subsections():
