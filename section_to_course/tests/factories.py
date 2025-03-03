@@ -2,15 +2,10 @@
 
 import factory
 from factory.django import DjangoModelFactory
+from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory  # pylint: disable=import-error
 
 from section_to_course.compat import update_outline_from_modulestore
 from section_to_course.models import SectionToCourseLink
-
-try:
-    from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory
-except ImportError:
-    from xmodule.modulestore.tests.factories import CourseFactory
-    from xmodule.modulestore.tests.factories import ItemFactory as BlockFactory
 
 
 class SectionToCourseLinkFactory(DjangoModelFactory):
