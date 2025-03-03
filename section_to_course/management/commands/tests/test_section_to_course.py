@@ -5,7 +5,6 @@ from io import StringIO
 
 from common.djangoapps.student.tests.factories import UserFactory  # pylint: disable=import-error
 from django.core.management import call_command
-
 from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory  # pylint: disable=import-error
 from xmodule.modulestore.tests.utils import MixedSplitTestCase  # pylint: disable=import-error
 

@@ -8,7 +8,6 @@ from xmodule.modulestore.tests.django_utils import ModuleStoreTestCase  # pylint
 from xmodule.modulestore.tests.factories import BlockFactory, CourseFactory  # pylint: disable=import-error
 
 from section_to_course.compat import modulestore
-
 from section_to_course.models import SectionToCourseLink
 from section_to_course.utils import paste_from_template
 
