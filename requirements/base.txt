@@ -18,7 +18,7 @@ click==8.1.8
     # via edx-django-utils
 cryptography==44.0.2
     # via pyjwt
-django==4.2.19
+django==4.2.20
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -71,7 +71,7 @@ edx-organizations==7.0.0
     # via -r requirements/base.in
 idna==3.10
     # via requests
-newrelic==10.6.0
+newrelic==10.7.0
     # via edx-django-utils
 pbr==6.1.1
     # via stevedore
@@ -85,7 +85,7 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.11.1
+pymongo==4.11.2
     # via edx-opaque-keys
 pynacl==1.5.0
     # via edx-django-utils
