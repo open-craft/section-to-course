@@ -60,7 +60,7 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.6.12
+coverage[toml]==7.7.0
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -150,7 +150,7 @@ faker==37.0.0
     # via
     #   -r requirements/quality.txt
     #   factory-boy
-filelock==3.17.0
+filelock==3.18.0
     # via
     #   -r requirements/ci.txt
     #   tox
