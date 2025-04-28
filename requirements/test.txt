@@ -8,7 +8,7 @@ asgiref==3.8.1
     # via
     #   -r requirements/base.txt
     #   django
-certifi==2025.1.31
+certifi==2025.4.26
     # via
     #   -r requirements/base.txt
     #   requests
@@ -87,7 +87,7 @@ edx-drf-extensions==10.6.0
     # via
     #   -r requirements/base.txt
     #   edx-organizations
-edx-opaque-keys==2.12.0
+edx-opaque-keys==3.0.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -110,7 +110,7 @@ jinja2==3.1.6
     # via code-annotations
 markupsafe==3.0.2
     # via jinja2
-newrelic==10.9.0
+newrelic==10.10.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils

@@ -6,7 +6,7 @@
 #
 asgiref==3.8.1
     # via django
-certifi==2025.1.31
+certifi==2025.4.26
     # via requests
 cffi==1.17.1
     # via
@@ -62,7 +62,7 @@ edx-django-utils==7.4.0
     #   edx-drf-extensions
 edx-drf-extensions==10.6.0
     # via edx-organizations
-edx-opaque-keys==2.12.0
+edx-opaque-keys==3.0.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -71,7 +71,7 @@ edx-organizations==7.0.0
     # via -r requirements/base.in
 idna==3.10
     # via requests
-newrelic==10.9.0
+newrelic==10.10.0
     # via edx-django-utils
 pbr==6.1.1
     # via stevedore
