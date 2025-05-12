@@ -8,7 +8,7 @@ asgiref==3.8.1
     # via
     #   -r requirements/test.txt
     #   django
-astroid==3.3.9
+astroid==3.3.10
     # via
     #   pylint
     #   pylint-celery
@@ -25,7 +25,7 @@ charset-normalizer==3.4.2
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.1.8
+click==8.2.0
     # via
     #   -r requirements/test.txt
     #   click-log
@@ -48,7 +48,7 @@ cryptography==44.0.3
     #   pyjwt
 dill==0.4.0
     # via pylint
-django==4.2.20
+django==4.2.21
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -157,7 +157,7 @@ pillow==11.2.1
     # via
     #   -r requirements/test.txt
     #   edx-organizations
-platformdirs==4.3.7
+platformdirs==4.3.8
     # via pylint
 pluggy==1.5.0
     # via
@@ -236,7 +236,7 @@ six==1.17.0
     #   -r requirements/test.txt
     #   edx-lint
     #   python-dateutil
-snowballstemmer==2.2.0
+snowballstemmer==3.0.1
     # via pydocstyle
 sqlparse==0.5.3
     # via
