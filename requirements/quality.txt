@@ -25,7 +25,7 @@ charset-normalizer==3.4.2
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.2.0
+click==8.2.1
     # via
     #   -r requirements/test.txt
     #   click-log
@@ -38,11 +38,11 @@ code-annotations==2.3.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage[toml]==7.8.0
+coverage[toml]==7.8.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==44.0.3
+cryptography==45.0.3
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -94,7 +94,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==7.4.0
+edx-django-utils==8.0.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -109,15 +109,15 @@ edx-opaque-keys==3.0.0
     #   -r requirements/test.txt
     #   edx-drf-extensions
     #   edx-organizations
-edx-organizations==7.0.0
+edx-organizations==7.1.0
     # via -r requirements/test.txt
 factory-boy==3.3.3
     # via -r requirements/test.txt
-faker==37.1.0
+faker==37.3.0
     # via
     #   -r requirements/test.txt
     #   factory-boy
-freezegun==1.5.1
+freezegun==1.5.2
     # via -r requirements/test.txt
 idna==3.10
     # via
@@ -141,10 +141,6 @@ markupsafe==3.0.2
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==10.11.0
-    # via
-    #   -r requirements/test.txt
-    #   edx-django-utils
 packaging==25.0
     # via
     #   -r requirements/test.txt
@@ -159,7 +155,7 @@ pillow==11.2.1
     #   edx-organizations
 platformdirs==4.3.8
     # via pylint
-pluggy==1.5.0
+pluggy==1.6.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -194,7 +190,7 @@ pylint-plugin-utils==0.8.2
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==4.12.1
+pymongo==4.13.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
