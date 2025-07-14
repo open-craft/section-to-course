@@ -23,10 +23,6 @@ organizations.HistoricalOrganization:
   ".. no_pii:": "This model has no PII"
 organizations.HistoricalOrganizationCourse:
   ".. no_pii:": "This model has no PII"
-organizations.Organization:
-  ".. no_pii:": "This model has no PII"
-organizations.OrganizationCourse:
-  ".. no_pii:": "This model has no PII"
 sessions.Session:
   ".. no_pii:": "This model has no PII"
 social_django.Association:
