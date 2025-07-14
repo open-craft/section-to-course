@@ -25,6 +25,10 @@ jobs:
             remote: open-craft
             release: sumac
             python-version: 3.11
+          - branch: release/teak
+            remote: openedx
+            release: teak
+            python-version: 3.11
           - branch: master
             remote: openedx
             release: master
