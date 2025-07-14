@@ -32,7 +32,7 @@ pip-log.txt
 coverage.xml
 htmlcov/
 pii_report/
-
+default.db
 
 # The Silver Searcher
 .agignore
