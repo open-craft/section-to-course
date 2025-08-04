@@ -12,7 +12,7 @@ astroid==3.3.11
     # via
     #   pylint
     #   pylint-celery
-certifi==2025.7.14
+certifi==2025.8.3
     # via
     #   -r requirements/test.txt
     #   requests
@@ -38,7 +38,7 @@ code-annotations==2.3.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage[toml]==7.9.2
+coverage[toml]==7.10.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -50,7 +50,7 @@ dill==0.4.0
     # via pylint
 django==4.2.23
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
+    #   -c https:/raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   django-crum
     #   django-model-utils
@@ -70,9 +70,8 @@ django-model-utils==5.0.0
     #   edx-organizations
 django-object-actions==5.0.0
     # via -r requirements/test.txt
-django-simple-history==3.0.0
+django-simple-history==3.1.1
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   edx-organizations
 django-waffle==5.0.0
@@ -113,11 +112,11 @@ edx-organizations==7.1.0
     # via -r requirements/test.txt
 factory-boy==3.3.3
     # via -r requirements/test.txt
-faker==37.4.2
+faker==37.5.3
     # via
     #   -r requirements/test.txt
     #   factory-boy
-freezegun==1.5.3
+freezegun==1.5.4
     # via -r requirements/test.txt
 idna==3.10
     # via
@@ -263,9 +262,8 @@ tzdata==2025.2
     # via
     #   -r requirements/test.txt
     #   faker
-urllib3==2.2.3
+urllib3==2.5.0
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   requests
 
