@@ -68,7 +68,7 @@ edx-opaque-keys==3.0.0
     #   edx-organizations
 edx-organizations==7.3.0
     # via -r requirements/base.in
-idna==3.10
+idna==3.11
     # via requests
 pillow==11.3.0
     # via edx-organizations
@@ -80,7 +80,7 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.15.2
+pymongo==4.15.3
     # via edx-opaque-keys
 pynacl==1.6.0
     # via edx-django-utils
