@@ -4,9 +4,9 @@
 #
 #    make upgrade
 #
-asgiref==3.10.0
+asgiref==3.11.0
     # via django
-certifi==2025.10.5
+certifi==2025.11.12
     # via requests
 cffi==2.0.0
     # via
@@ -14,11 +14,11 @@ cffi==2.0.0
     #   pynacl
 charset-normalizer==3.4.4
     # via requests
-click==8.3.0
+click==8.3.1
     # via edx-django-utils
 cryptography==46.0.3
     # via pyjwt
-django==4.2.25
+django==5.2.8
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -72,7 +72,7 @@ idna==3.11
     # via requests
 pillow==12.0.0
     # via edx-organizations
-psutil==7.1.1
+psutil==7.1.3
     # via edx-django-utils
 pycparser==2.23
     # via cffi
@@ -80,9 +80,9 @@ pyjwt[crypto]==2.10.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.15.3
+pymongo==4.15.4
     # via edx-opaque-keys
-pynacl==1.6.0
+pynacl==1.6.1
     # via edx-django-utils
 requests==2.32.5
     # via edx-drf-extensions
@@ -90,7 +90,7 @@ semantic-version==2.10.0
     # via edx-drf-extensions
 sqlparse==0.5.3
     # via django
-stevedore==5.5.0
+stevedore==5.6.0
     # via
     #   edx-django-utils
     #   edx-opaque-keys
