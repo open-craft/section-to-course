@@ -48,7 +48,7 @@ cryptography==46.0.3
     #   pyjwt
 dill==0.4.0
     # via pylint
-django==5.2.8
+django==5.2.9
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -149,7 +149,7 @@ pillow==12.0.0
     # via
     #   -r requirements/test.txt
     #   edx-organizations
-platformdirs==4.5.0
+platformdirs==4.5.1
     # via pylint
 pluggy==1.6.0
     # via
@@ -191,7 +191,7 @@ pylint-plugin-utils==0.9.0
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==4.15.4
+pymongo==4.15.5
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -199,7 +199,7 @@ pynacl==1.6.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pytest==9.0.1
+pytest==9.0.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -259,7 +259,7 @@ tzdata==2025.2
     # via
     #   -r requirements/test.txt
     #   faker
-urllib3==2.5.0
+urllib3==2.6.0
     # via
     #   -r requirements/test.txt
     #   requests
