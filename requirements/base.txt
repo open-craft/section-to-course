@@ -39,7 +39,7 @@ django-model-utils==5.0.0
     #   edx-organizations
 django-object-actions==5.0.0
     # via -r requirements/base.in
-django-simple-history==3.10.1
+django-simple-history==3.11.0
     # via edx-organizations
 django-waffle==5.0.0
     # via
@@ -72,7 +72,7 @@ idna==3.11
     # via requests
 pillow==12.0.0
     # via edx-organizations
-psutil==7.1.3
+psutil==7.2.0
     # via edx-django-utils
 pycparser==2.23
     # via cffi
@@ -88,7 +88,7 @@ requests==2.32.5
     # via edx-drf-extensions
 semantic-version==2.10.0
     # via edx-drf-extensions
-sqlparse==0.5.4
+sqlparse==0.5.5
     # via django
 stevedore==5.6.0
     # via
@@ -96,7 +96,7 @@ stevedore==5.6.0
     #   edx-opaque-keys
 typing-extensions==4.15.0
     # via edx-opaque-keys
-urllib3==2.6.0
+urllib3==2.6.2
     # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
